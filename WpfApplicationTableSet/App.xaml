@@ -1,0 +1,9 @@
+﻿<Application x:Class="WpfApplicationTableSet.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WpfApplicationTableSet"
+             StartupUri="/View/MainWindowView/MainWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
