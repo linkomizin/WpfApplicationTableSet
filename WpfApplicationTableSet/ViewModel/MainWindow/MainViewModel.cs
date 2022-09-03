@@ -55,7 +55,7 @@ namespace WpfApplicationTableSet.ViewModel.MainWindow
                        {
                            View.NewPhone.NewPhone newPhone = new View.NewPhone.NewPhone();
                            newPhone.Show();
-                           newPhone.Close();
+                            
                            MessageBox.Show("Lalalala");
 
                        }));
