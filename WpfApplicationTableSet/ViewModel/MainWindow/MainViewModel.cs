@@ -55,10 +55,8 @@ namespace WpfApplicationTableSet.ViewModel.MainWindow
                        {
                            View.NewPhone.NewPhone newPhone = new View.NewPhone.NewPhone();
                            newPhone.Show();
-                           if (((View.NewPhone.NewPhone) Application.Current.MainWindow).CheckBox.Content.Equals(true))
-                           {
-
-                           }
+                           newPhone.Close();
+                           MessageBox.Show("Lalalala");
 
                        }));
             }

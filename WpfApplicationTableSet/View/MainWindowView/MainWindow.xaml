@@ -189,6 +189,7 @@
 
                             <Button   Content="Add Car" 
                                       Command="{Binding Path=AddNewPhoneCommand}"
+                                      CommandParameter="{Binding SelectedPhone}"
                                       Margin="5,0,5,0" 
                                       Padding="4, 2" />
                             <Button   

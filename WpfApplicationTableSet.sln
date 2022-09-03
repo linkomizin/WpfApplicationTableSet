@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApplicationTableSet", "WpfApplicationTableSet\WpfApplicationTableSet.csproj", "{5C1B0F59-8AC8-4C96-9FA2-6CF9CFC8A384}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CV19Console", "CV19Console\CV19Console.csproj", "{29A7BA8B-1344-4C09-A04C-BEACB5AE2398}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5C1B0F59-8AC8-4C96-9FA2-6CF9CFC8A384}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C1B0F59-8AC8-4C96-9FA2-6CF9CFC8A384}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C1B0F59-8AC8-4C96-9FA2-6CF9CFC8A384}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29A7BA8B-1344-4C09-A04C-BEACB5AE2398}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29A7BA8B-1344-4C09-A04C-BEACB5AE2398}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29A7BA8B-1344-4C09-A04C-BEACB5AE2398}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29A7BA8B-1344-4C09-A04C-BEACB5AE2398}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -102,6 +102,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="StaticResource\StaticResource.cs" />
     <Compile Include="ViewModel\EntityBase.cs" />
     <Compile Include="Model\Phone.cs" />
     <Compile Include="ViewModel\Command\RelayCommand.cs" />

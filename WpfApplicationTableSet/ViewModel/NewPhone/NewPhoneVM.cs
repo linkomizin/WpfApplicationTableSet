@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using WpfApplicationTableSet.Model;
 using WpfApplicationTableSet.ViewModel.Command;
 
@@ -54,8 +55,9 @@ namespace WpfApplicationTableSet.ViewModel.NewPhone
                        {
                            if (HasErrors == false)
                            {
-                               newPhone = new Phone{NameModel =NameModel, Manufacturer = Manufacturer, Price = Price};
-                                
+                               newPhone = new Phone { NameModel = NameModel, Manufacturer = Manufacturer, Price = Price };
+                               StaticResource.StaticResource.StaticResourceDictionary.Add(nameof(Phone), newPhone);
+                               
                            }
                        }));
             }
