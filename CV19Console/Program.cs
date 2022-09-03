@@ -28,7 +28,9 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     continue;
                 }
 
-                yield return line;
+                yield return line.Replace("Korea,", "Korea -")
+                    .Replace("Bonaire," , "Bonaire -")
+                    .Replace("Saint Helena,", "Saint Helena-");
             }
         }
 
@@ -40,7 +42,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
             .Select(s=> DateTime.Parse(s, CultureInfo.InvariantCulture))
             .ToArray();
 
-        private static IEnumerable<string Country, string Province, int[] Counts> GetData()
+        private static IEnumerable<(string Country, string Province, int[] Counts)> GetData()
         {
             var lines = GetDataLines()
                 .Skip(1)
@@ -52,7 +54,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 var country_name = row[1].Trim(' ','"');
                 var counts = row.Skip(4)
                     .Select(int.Parse).ToArray();
-
+                yield return (country_name, province, counts);
             }
 
         }
@@ -64,10 +66,16 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 Console.WriteLine(stringDataLine);
             }*/
 
-           var dates = GetDates();
-            Console.WriteLine(string.Join("\r\n", dates));
+          // var dates = GetDates();
+           // Console.WriteLine(string.Join("\r\n", dates));
 
-           Console.ReadLine();
+           var russia = GetData()
+               .First(v => v.Country.Equals("Russia", StringComparison.OrdinalIgnoreCase));
+            
+           Console.WriteLine(string.Join("\r\n", GetDates().Zip(russia.Counts, (date, count) => $"{date} - {count}")));
+
+
+            Console.ReadLine();
         }
     }
 }
