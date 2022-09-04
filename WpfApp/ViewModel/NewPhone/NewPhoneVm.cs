@@ -46,8 +46,7 @@ namespace WpfApp.ViewModel.NewPhone
             Phone phone = GetPhone;
 
             Messenger.Send(new PhoneMessage(phone));
-             
-            //phone = WeakReferenceMessenger.Default.Send<CurrentPhoneRequestMessage>();
+            
         }
 
         protected override void OnActivated()
