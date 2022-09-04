@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
+using Org.BouncyCastle.Security.Certificates;
 using WpfApplicationTableSet.Model;
 using WpfApplicationTableSet.ViewModel.Command;
 
@@ -11,6 +12,16 @@ namespace WpfApplicationTableSet.ViewModel.MainWindow
 {
     public partial class MainViewModel : INotifyPropertyChanged
     {
+
+        private IEnumerable<DataPoint> _testDataPoints;
+
+        //public IEnumerable<DataPoint> TestDataPoints
+        //{
+        //    get => _testDataPoints;
+        //    set => Set(ref _testDataPoints, value);
+
+        //}
+
         public bool IsChanged { get; set; }
 
         public string ConnectString { get; set; } = "server=localhost;user=root;password=1234;database=telegramDB;";
@@ -67,4 +78,6 @@ namespace WpfApplicationTableSet.ViewModel.MainWindow
 
 
     }
+
+   
 }
