@@ -29,11 +29,14 @@
             </Button>
             <Button Content="Delete"></Button>
         </StackPanel>
+            <TextBlock Text="{ Binding   Path=NewPhoneToAdd.NameModel, Mode=OneWay}"/>
+
             <DataGrid
                 Background="Bisque"
                 AlternatingRowBackground="Azure" 
                 AutoGenerateColumns="True"
-                ItemsSource="{Binding Path=ListPhone, NotifyOnSourceUpdated=True}"
+                ItemsSource="{Binding Path=ListPhone, 
+                NotifyOnSourceUpdated=True}"
 
                 >
             </DataGrid>

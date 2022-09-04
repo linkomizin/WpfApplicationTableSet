@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -72,10 +73,12 @@ namespace WpfApp.ViewModel
         #region messenger
         protected override void OnActivated()
         {
-            Messenger.Register<MyClassVm, CurrentPhoneRequestMessage>
+            Messenger.Register<MyClassVm, PhoneMessage>
                 (this, (r, m) 
-                    => r.NewPhoneToAdd = m.Response );
+                    => r.NewPhoneToAdd = m.Value);
+            MessageBox.Show(NewPhoneToAdd.Manufacturer);
             ListPhone.Add(NewPhoneToAdd);
+            
         }
         #endregion
 

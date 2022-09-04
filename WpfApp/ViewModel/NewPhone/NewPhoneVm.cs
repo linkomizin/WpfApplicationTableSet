@@ -36,7 +36,7 @@ namespace WpfApp.ViewModel.NewPhone
         public void RequestCurrentNewPhone()
         {
             Phone phone = GetPhone;
-            WeakReferenceMessenger.Default.Send<CurrentPhoneRequestMessage>();
+            GetPhone = WeakReferenceMessenger.Default.Send<CurrentPhoneRequestMessage>();
         }
 
 
@@ -46,13 +46,14 @@ namespace WpfApp.ViewModel.NewPhone
             Phone phone = GetPhone;
 
             Messenger.Send(new PhoneMessage(phone));
-            RequestCurrentNewPhone();
+             
             //phone = WeakReferenceMessenger.Default.Send<CurrentPhoneRequestMessage>();
         }
 
         protected override void OnActivated()
         {
-            Messenger.Register<NewPhoneVm, CurrentPhoneRequestMessage>(this, (r, m) => m.Reply(r.GetPhone));
+            Messenger.Register<NewPhoneVm, CurrentPhoneRequestMessage>
+            (this, (r, m) => m.Reply(r.GetPhone));
         }
 
 
