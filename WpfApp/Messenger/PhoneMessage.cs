@@ -10,8 +10,6 @@ namespace WpfApp.Messenger
         {
         }
     }
-    public sealed class CurrentPhoneRequestMessage : RequestMessage<Phone>
-    {
-    }
+   
 }
  

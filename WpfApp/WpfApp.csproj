@@ -98,6 +98,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Messenger\CurrentPhoneRequestMessage.cs" />
     <Compile Include="Messenger\PhoneMessage.cs" />
     <Compile Include="ViewModel\NewPhone\NewPhoneVm.cs" />
     <Compile Include="View\NewPhone\NewPhone.xaml.cs">
