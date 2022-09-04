@@ -24,7 +24,7 @@
             Orientation="Horizontal">
             <Button
                 Content="New"
-                Command="{Binding Path= IncrementCounterCommand}"
+                Command="{Binding Path= NewPhoneOpenWindowCommand}"
                 >
             </Button>
             <Button Content="Delete"></Button>

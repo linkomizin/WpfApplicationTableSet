@@ -11,6 +11,11 @@
         <newPhone:NewPhoneVm />
     </Window.DataContext>
     <Grid>
+        <StackPanel Orientation="Vertical">
+        <TextBlock Text="{Binding Path=GetPhone.NameModel, Mode=OneWay}"/>
+
         <Button Content="Add" Command="{Binding Path=ReturnPhoneCommand}"></Button>
+            <Button Content="Add" Command="{Binding Path=SendUserMessageCommand}"></Button>
+        </StackPanel>
     </Grid>
 </Window>

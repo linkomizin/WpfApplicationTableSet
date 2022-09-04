@@ -19,7 +19,24 @@ namespace WpfApp.ViewModel
         public MyClassVm()
         {
             IncrementCounterCommand = new RelayCommand(IncrementCounter);
+            NewPhoneOpenWindowCommand = new RelayCommand(NewPhoneOpenWindow);
         }
+
+        #region MyRegion
+
+
+
+
+        #endregion
+
+        #region command
+        public ICommand IncrementCounterCommand { get; }
+        public ICommand NewPhoneOpenWindowCommand { get; }
+
+        #endregion
+
+
+        #region model
 
         private int _counter;
 
@@ -36,9 +53,6 @@ namespace WpfApp.ViewModel
             get => _phone;
             private set => SetProperty(ref _phone, value);
         }
-
-        public ICommand IncrementCounterCommand { get; }
-
         private void IncrementCounter() => Counter++;
 
         private ObservableCollection<Phone> _phones
@@ -48,20 +62,32 @@ namespace WpfApp.ViewModel
                 new Phone() {Id = 2, Manufacturer = "Samsung", NameModel = "A3", Price = 22},
             };
 
+
         public ObservableCollection<Phone> ListPhone
         {
             get => _phones;
             private set => SetProperty(ref _phones, value);
         }
-
+        #endregion
+        #region messenger
         protected override void OnActivated()
         {
-            Messenger.Register<MyClassVm, CurrentPhoneRequestMessage>(this, (r, m) => r.NewPhoneToAdd = m.Response);
+            Messenger.Register<MyClassVm, CurrentPhoneRequestMessage>
+                (this, (r, m) 
+                    => r.NewPhoneToAdd = m.Response );
+            ListPhone.Add(NewPhoneToAdd);
         }
-        public void RequestCurrentNewPhone()
-        {
-            NewPhoneToAdd = WeakReferenceMessenger.Default.Send<CurrentPhoneRequestMessage>();
-        }
+        #endregion
 
+        #region newPhone vm
+
+        public void NewPhoneOpenWindow()
+        {
+            View.NewPhone.NewPhone vm = new View.NewPhone.NewPhone();
+            vm.Show();
+        }
+        
+
+        #endregion
     }
 }

@@ -14,10 +14,12 @@ namespace WpfApp.ViewModel.NewPhone
         public NewPhoneVm()
         {
             ReturnPhoneCommand = new RelayCommand(ReturnPhone);
+            SendUserMessageCommand = new RelayCommand(SendUserMessage);
         }
 
-        private Phone _phone;
 
+
+        private Phone _phone;
         public Phone GetPhone
         {
             get => _phone;
@@ -25,26 +27,34 @@ namespace WpfApp.ViewModel.NewPhone
         }
 
         public ICommand ReturnPhoneCommand { get; }
+        public ICommand SendUserMessageCommand { get; }
+
 
         private void ReturnPhone() => GetPhone = new Phone()
         { Id = 3, Manufacturer = "Sasung", NameModel = "OLOLO!!!1", Price = 22 };
 
+        public void RequestCurrentNewPhone()
+        {
+            Phone phone = GetPhone;
+            WeakReferenceMessenger.Default.Send<CurrentPhoneRequestMessage>();
+        }
 
 
 
-        
         public void SendUserMessage()
         {
             Phone phone = GetPhone;
 
             Messenger.Send(new PhoneMessage(phone));
+            RequestCurrentNewPhone();
+            //phone = WeakReferenceMessenger.Default.Send<CurrentPhoneRequestMessage>();
         }
 
         protected override void OnActivated()
         {
             Messenger.Register<NewPhoneVm, CurrentPhoneRequestMessage>(this, (r, m) => m.Reply(r.GetPhone));
         }
- 
+
 
     }
 }
