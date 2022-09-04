@@ -18,6 +18,17 @@
             <Button
             Content="Click me!"
             Command="{Binding Path= IncrementCounterCommand}"/>
+        <StackPanel
+            HorizontalAlignment="Right"
+            Margin="5,1,5,0"
+            Orientation="Horizontal">
+            <Button
+                Content="New"
+                Command="{Binding Path= IncrementCounterCommand}"
+                >
+            </Button>
+            <Button Content="Delete"></Button>
+        </StackPanel>
             <DataGrid
                 Background="Bisque"
                 AlternatingRowBackground="Azure" 

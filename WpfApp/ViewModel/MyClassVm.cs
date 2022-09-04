@@ -7,11 +7,14 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
+using WpfApp.Messenger;
 using WpfApp.Model;
+using WpfApp.ViewModel.NewPhone;
 
 namespace WpfApp.ViewModel
 {
-    public class MyClassVm :ObservableObject
+    public class MyClassVm : ObservableRecipient
     {
         public MyClassVm()
         {
@@ -24,6 +27,14 @@ namespace WpfApp.ViewModel
         {
             get => _counter;
             private set => SetProperty(ref _counter, value);
+        }
+
+        private Phone _phone;
+
+        public Phone NewPhoneToAdd
+        {
+            get => _phone;
+            private set => SetProperty(ref _phone, value);
         }
 
         public ICommand IncrementCounterCommand { get; }
@@ -41,6 +52,15 @@ namespace WpfApp.ViewModel
         {
             get => _phones;
             private set => SetProperty(ref _phones, value);
+        }
+
+        protected override void OnActivated()
+        {
+            Messenger.Register<MyClassVm, CurrentPhoneRequestMessage>(this, (r, m) => r.NewPhoneToAdd = m.Response);
+        }
+        public void RequestCurrentNewPhone()
+        {
+            NewPhoneToAdd = WeakReferenceMessenger.Default.Send<CurrentPhoneRequestMessage>();
         }
 
     }
